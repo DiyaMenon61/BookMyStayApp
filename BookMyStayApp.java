@@ -1,6 +1,5 @@
-import java.util.*;
 
-public class BookMyStayApp {
+import java.util.*;
 
     public static void main(String[] args) {
 
@@ -16,6 +15,6 @@ public class BookMyStayApp {
 
         while(!q.isEmpty()) {
             System.out.println(q.remove());
+
         }
     }
-}
