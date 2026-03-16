@@ -1,5 +1,4 @@
 public class BookMyStayApp {
-
     static abstract class Room {
         String type;
 
@@ -55,4 +54,14 @@ public class BookMyStayApp {
         r3.showRoom();
         System.out.println("Available: " + suiteAvailable);
     }
+
+    public static void main(String[] args) {
+
+        System.out.println("Welcome to Book My Stay App");
+        System.out.println("Hotel Booking Management System");
+        System.out.println("Version 1.0");
+
+    }
+
+
 }
