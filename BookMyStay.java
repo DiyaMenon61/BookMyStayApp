@@ -1,44 +1,30 @@
 import java.util.*;
 
 public class BookMyStay {
-
     public static void main(String[] args) {
 
-        Queue<String> requests = new LinkedList<>();
-        requests.add("Single");
-        requests.add("Double");
-        requests.add("Single");
+        Queue<String> q = new LinkedList<>();
+        q.add("Single");
+        q.add("Double");
 
-        Map<String, Integer> inventory = new HashMap<>();
-        inventory.put("Single", 2);
-        inventory.put("Double", 1);
+        Map<String, Integer> inv = new HashMap<>();
+        inv.put("Single", 1);
+        inv.put("Double", 1);
 
-        Set<String> usedRooms = new HashSet<>();
-        Map<String, Set<String>> allocated = new HashMap<>();
-
+        Set<String> rooms = new HashSet<>();
         int id = 1;
 
-        while (!requests.isEmpty()) {
-            String type = requests.poll();
+        while (!q.isEmpty()) {
+            String type = q.poll();
 
-            if (inventory.get(type) > 0) {
-
+            if (inv.get(type) > 0) {
                 String roomId = type + id++;
-
-                usedRooms.add(roomId);
-
-                allocated.putIfAbsent(type, new HashSet<>());
-                allocated.get(type).add(roomId);
-
-                inventory.put(type, inventory.get(type) - 1);
-
-                System.out.println("Booked " + type + " → " + roomId);
-
+                rooms.add(roomId);
+                inv.put(type, inv.get(type) - 1);
+                System.out.println("Booked: " + roomId);
             } else {
-                System.out.println(type + " Not Available");
+                System.out.println(type + " not available");
             }
         }
-
-        System.out.println("Allocated Rooms: " + allocated);
     }
 }
